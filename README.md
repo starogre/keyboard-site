@@ -4,61 +4,66 @@ Keyboard-driven personal site prototype built with React, Vite, and Tailwind CSS
 
 ## Prerequisites
 
-- **macOS or Linux shell** (examples below assume macOS)
-- **Homebrew** for package management
-- **Node.js + npm** (Node 18 or newer recommended)
-- **Codex CLI** tooling for the guided coding workflow
-- **Git** for version control
+- Node.js 18+ (npm ships with it)
+- Git
+- macOS, Linux, or WSL shell (examples below use macOS commands)
+- Optional: [Homebrew](https://brew.sh/) if you prefer package-manager installs
+- Optional: OpenAI + Codex CLI tooling if you plan to use the Codex workflow
 
-## Environment Setup
+## Setup
 
-1. **Install Homebrew (skip if already installed):**
+1. **(Optional) Install Homebrew**
 
    ```bash
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
 
-   After the installer finishes, follow its `echo` instructions so `brew` is on your `PATH`.
+   Follow the installer’s final instructions so `brew` is available in your shell.
 
-2. **Install Node.js and npm via Homebrew:**
+2. **Install Node.js and npm**
 
-   ```bash
-   brew install node
-   ```
+   - Homebrew: `brew install node`
+   - Alternative: download the LTS installer from [nodejs.org](https://nodejs.org/) if you prefer not to use Homebrew.
 
-   Verify the versions:
+   Verify the install:
 
    ```bash
    node -v
    npm -v
    ```
 
-3. **Install Git (if not already available):**
+3. **Install Git (if you do not already have it)**
 
    ```bash
    brew install git
    ```
 
-4. **Install the Codex CLI:**
+   On Linux, use your distro’s package manager instead of Homebrew.
+
+4. **(Optional) Install the OpenAI CLI** – required before `@openai/codex-cli`
+
+   ```bash
+   npm install -g openai
+   openai --version
+   ```
+
+5. **(Optional) Install the Codex CLI** – only needed for the guided Codex workflow
 
    ```bash
    npm install -g @openai/codex-cli
-   ```
-
-   Log in (the CLI will open a browser window to authenticate):
-
-   ```bash
    codex login
    ```
 
-5. **Clone this repository:**
+6. **Clone this repository using HTTPS**
 
    ```bash
-   git clone git@github.com:<your-username>/keyboard-site.git
+   git clone https://github.com/<your-username>/keyboard-site.git
    cd keyboard-site
    ```
 
-6. **Install project dependencies:**
+   Replace `<your-username>` with the account or organization that owns your fork. Use `git remote set-url origin ...` if you later swap between SSH/HTTPS.
+
+7. **Install project dependencies**
 
    ```bash
    npm install
@@ -66,21 +71,21 @@ Keyboard-driven personal site prototype built with React, Vite, and Tailwind CSS
 
 ## Development
 
-- **Start the dev server:**
+- Start the Vite dev server:
 
   ```bash
   npm run dev
   ```
 
-  Vite will display a local URL (default `http://localhost:5173`).
+  Vite prints a local URL (default `http://localhost:5173`).
 
-- **Build for production:**
+- Build for production:
 
   ```bash
   npm run build
   ```
 
-- **Preview the production build:**
+- Preview the production build locally:
 
   ```bash
   npm run preview
@@ -100,7 +105,7 @@ The URL hash reflects the current page, section, and project selection. Copy the
 ## Troubleshooting
 
 - If `codex` commands fail, re-run `codex login` to refresh auth.
-- Ensure the terminal has access to Node binaries (restart the shell after installing via Homebrew).
+- Ensure the terminal can find the Node binaries (restart the shell after installing via Homebrew or update your `PATH`).
 - Delete `node_modules` and retry `npm install` if dependencies become inconsistent.
 
 ## License
